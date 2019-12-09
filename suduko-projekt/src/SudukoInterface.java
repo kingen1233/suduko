@@ -1,3 +1,4 @@
+
 public class SudukoInterface {
 
  
@@ -39,3 +40,4 @@ int d = 100;
 private int help() {
 	//wtf
 }
+
