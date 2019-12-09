@@ -1,6 +1,7 @@
 
 public class TestClass2 {
 
+	boolean deeznuts = false;
 	
 	TestClass2(){
 		
@@ -11,8 +12,8 @@ public class TestClass2 {
 	public void deeznuts() {
 		
 		
-		while(true) {
-			//lickondeeznuts
+		if(deeznuts== true) {
+			//lickonem
 		}
 		
 	}
