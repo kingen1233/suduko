@@ -9,3 +9,10 @@ private int Help(){
 	//wtf 
 	return null;
 }
+
+
+private static void main (String []Args) {
+	
+	
+	
+}
