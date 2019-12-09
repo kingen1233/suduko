@@ -1,4 +1,21 @@
 
 public class TestClass2 {
- // Hejsan Im trying to kill myself hehexd
+
+	
+	TestClass2(){
+		
+		
+	}
+	
+	
+	public void deeznuts() {
+		
+		
+		while(true) {
+			//lickondeeznuts
+		}
+		
+	}
+
+
 }
