@@ -1,4 +1,22 @@
 
 public class TestClass2 {
- // Hejsan Im trying to kill myself hehexd
+
+	boolean deeznuts = false;
+	
+	TestClass2(){
+		
+		
+	}
+	
+	
+	public void deeznuts() {
+		
+		
+		if(deeznuts== true) {
+			//lickonem
+		}
+		
+	}
+
+
 }
