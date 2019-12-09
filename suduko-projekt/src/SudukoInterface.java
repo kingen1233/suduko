@@ -1,31 +1,34 @@
 
 public class SudukoInterface {
 
-}
-
-private int Help(){
-	//wtf 
-	return null;
-}
-
+	private int Help() {
+		// wtf
+		return (Integer) null;
+	}
 
 	public void newMethod() {
-		
-		
+
 	}
 	
+	public void newMetho2d() {
 
+	}
 
-}
-
-private static void main (String []Args) {
-
-
-int d = 100;
 	
-}
+	public void newMethod3() {
 
-private int help() {
-	//wtf
+	}
+
+	
+	public void newMeth4od() {
+
+	}
+
+
+	private int help() {
+		return 0;
+		// wtf
+	}
+
 }
 
