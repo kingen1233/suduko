@@ -1,84 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class SudukoInterface {
 
  
@@ -113,7 +32,7 @@ private int Help(){
 private static void main (String []Args) {
 
 
-
+int d = 100;
 	
 }
 
