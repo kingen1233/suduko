@@ -63,7 +63,7 @@ public class SudukoInterface extends Application {
 			TextField textField = new TextField();
 			textField.setText("5");
 			textField.setPrefColumnCount(1);
-			
+
 			if (i <= 27 || i > 54) {
 
 				if (i % 9 <= 3 || i % 9 > 6)
@@ -75,7 +75,7 @@ public class SudukoInterface extends Application {
 			}
 			tp.getChildren().add(textField);
 		}
-		
+
 		buttonClear.setOnAction(e -> {
 			for (int i = 0; i < (WIDTH * HEIGHT); i++) {
 

@@ -14,12 +14,40 @@ public class Suduko {
 		suduko = new int[rows][cols];
 	}
 	
-	public void setValueOfIndex(int row, int col) {
+
+	public void setValueOfIndex(int row, int col, int value) {
+		suduko[row][col] = value;
+	}
+	
+	public int getValueOfIndex(int row, int col) {
+		
+		
+		
+		return  suduko[row][col];
+	}
+	
+	public boolean solve() {
+		
+		
+		
+	     return solve(0,0);
 		
 	}
 	
-	public void getValueOfIndex(int row, int col) {
+	private boolean solve(int i, int j) {
+		
+		
+		return false;
 		
 	}
+   public void clear() {
+	  
+	      for (int i = 0; i < rows; i++) {
+	    	  for (int j = 0; j < cols ; j++) {
+	    		  suduko[i][j] = 0;
+	    	  }
+	      }
+	 
+   }
 
 }
