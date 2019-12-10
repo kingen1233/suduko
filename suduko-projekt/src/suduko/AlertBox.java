@@ -1,4 +1,4 @@
-
+package suduko;
 
 import javafx.scene.control.Label;
 import javafx.application.Application;
