@@ -14,6 +14,7 @@ public class Suduko {
 		suduko = new int[rows][cols];
 	}
 	
+
 	public void setValueOfIndex(int row, int col, int value) {
 		suduko[row][col] = value;
 	}
@@ -48,4 +49,5 @@ public class Suduko {
 	      }
 	 
    }
+
 }
