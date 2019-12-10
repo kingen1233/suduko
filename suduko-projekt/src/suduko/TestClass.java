@@ -1,3 +1,4 @@
+package suduko;
 
 public class TestClass {
 
