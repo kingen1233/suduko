@@ -14,11 +14,11 @@ public class Suduko {
 		suduko = new int[rows][cols];
 	}
 	
-	private void setValueOfIndex(int row, int col) {
+	public void setValueOfIndex(int row, int col) {
 		
 	}
 	
-	private void getValueOfIndex(int row, int col) {
+	public void getValueOfIndex(int row, int col) {
 		
 	}
 
