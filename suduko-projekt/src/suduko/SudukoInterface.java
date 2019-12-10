@@ -32,22 +32,21 @@ public class SudukoInterface extends Application {
 		s.setTitle("Suduko Solver " + VERSION);
 		
 		Suduko suduko = new Suduko();
+		AlertBox alert = new AlertBox();
 
 		TilePane tp = new TilePane();	
 		tp.setPrefColumns(HEIGHT);
 		tp.setPrefRows(WIDTH);
 		
 		TilePane tilePane = new TilePane(tp);
-		BorderPane root = new BorderPane();	
-		
+
 		HBox hbox = new HBox();
 		hbox.setAlignment(Pos.BOTTOM_CENTER);
 		hbox.setSpacing(40);
-
+		
+		BorderPane root = new BorderPane();	
 		root.setMargin(tilePane, new Insets(12,12,12,12));
-		root.setCenter(tilePane);
-		
-		
+		root.setCenter(tilePane);		
 		root.setMargin(hbox, new Insets(12,12,12,12));
 		root.setBottom(hbox);
 		
@@ -60,7 +59,7 @@ public class SudukoInterface extends Application {
 		
 		//Skapar textfields, sätter deras pref längd till 1, ger dem rätt färg med ifsatsen och lägger in i tilepane
 		for (int i = 1; i <= (WIDTH * HEIGHT); i++) {
-			TextField textField = new TextField();
+			OneNumberTextField textField = new OneNumberTextField();
 			textField.setText("5");
 			textField.setPrefColumnCount(1);
 
@@ -79,27 +78,45 @@ public class SudukoInterface extends Application {
 		buttonClear.setOnAction(e -> {
 			for (int i = 0; i < (WIDTH * HEIGHT); i++) {
 
-				TextField temp = new TextField();
-				temp = (TextField) tp.getChildren().get(i);
+				OneNumberTextField temp = new OneNumberTextField();
+				temp = (OneNumberTextField) tp.getChildren().get(i);
 				temp.setText("");
 				tp.getChildren().set(i, temp);
 			}
+			
+			suduko.clear();
 
 		});
 
+		String compare = "";
 		buttonSolve.setOnAction(e -> {
 			for (int i = 0; i < (WIDTH * HEIGHT); i++) {
 
+				TextField temp = new TextField();
+				temp = (TextField) tp.getChildren().get(i);
+
+				if (!temp.getText().equals(compare)) {
+
+					int value = Integer.parseInt(temp.getText());
+					suduko.setValueOfIndex(i / 9, i % 9, value);
+				}
+			}
+
+			System.out.println(suduko.print());
+
+			boolean solved = suduko.solve();
+			solved = false;
+			
+			if(solved) {
 				
+				alert.display("Solution found!", "Atleast one solution for your suduko\nwas found and is now being displayed!");
+				
+			}
+			else {
+				alert.display("No solutions!", "No solution exists for you suduko.");
 			}
 
 		});
-
-		//För att hämta text från tielpane
-		//TextField temp = new TextField();
-		//temp = (TextField) tp.getChildren().get(5);
-		//int a = Integer.parseInt(temp.getText());
-
 
 		Scene scene1 = new Scene(root, 260, 300);
 		s.setResizable(false);

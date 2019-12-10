@@ -2,7 +2,7 @@ package suduko;
 
 import javafx.scene.control.TextField;
 
-public class OneLetterTextField extends TextField {
+public class OneNumberTextField extends TextField {
 
 	@Override
 	public void replaceText(int start, int end, String text) {
@@ -19,7 +19,7 @@ public class OneLetterTextField extends TextField {
 	}
 
 	private boolean matches(String text) {
-		return text.isEmpty() || (getText().length() < 1) && text.matches("[A-Z]") ;
+		return text.isEmpty() || (getText().length() < 1) && text.matches("[1-9]") ;
 	}
 
 }

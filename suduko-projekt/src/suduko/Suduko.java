@@ -49,5 +49,26 @@ public class Suduko {
 	      }
 	 
    }
+   
+	public String print() {
+		
+		
+		StringBuilder sb = new StringBuilder();
+		
+		   for (int i = 0; i < rows; i++) {
+		    	  for (int j = 0; j < cols ; j++) {
+
+		    		  sb.append(getValueOfIndex(i, j) + "  ");
+		    	  }
+		    	  
+		    	  sb.append("\n");
+		      }
+		 
+
+		return sb.toString();
+
+	}
+   
+   
 
 }
