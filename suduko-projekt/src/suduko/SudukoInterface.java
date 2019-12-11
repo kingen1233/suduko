@@ -67,8 +67,8 @@ public class SudukoInterface extends Application {
 
 				if (i % 9 <= 3 || i % 9 > 6)
 					textField.setStyle("-fx-control-inner-background: #" + value0.toString().substring(2));
-			} 
-			else {
+			} else 
+			{
 				if (i % 9 > 3 && i % 9 < 7)
 					textField.setStyle("-fx-control-inner-background: #" + value0.toString().substring(2));
 			}
@@ -83,17 +83,19 @@ public class SudukoInterface extends Application {
 				temp.setText("");
 				tp.getChildren().set(i, temp);
 			}
-			
+
 			suduko.clear();
 
 		});
 
 		String compare = "";
 		buttonSolve.setOnAction(e -> {
+			
+			//Läs in tal till suduko
 			for (int i = 0; i < (WIDTH * HEIGHT); i++) {
 
-				TextField temp = new TextField();
-				temp = (TextField) tp.getChildren().get(i);
+				OneNumberTextField temp = new OneNumberTextField();
+				temp = (OneNumberTextField) tp.getChildren().get(i);
 
 				if (!temp.getText().equals(compare)) {
 
@@ -102,19 +104,31 @@ public class SudukoInterface extends Application {
 				}
 			}
 
-			System.out.println(suduko.print());
-
 			boolean solved = suduko.solve();
-			solved = false;
-			
-			if(solved) {
+
+			//om det är löst berätta för användaren samt skriv ut lösning
+			if (solved) {
+
+				for (int i = 0; i < (WIDTH * HEIGHT); i++) {
+
+					OneNumberTextField temp = new OneNumberTextField();
+					temp = (OneNumberTextField) tp.getChildren().get(i);
+					temp.setText(Integer.toString(suduko.getValueOfIndex(i / 9, i % 9)).strip());
+					tp.getChildren().set(i, temp);
+
+				}
+
+				alert.display("Solution found!",
+						"Atleast one solution for your suduko\nwas found and is now being displayed!");
 				
-				alert.display("Solution found!", "Atleast one solution for your suduko\nwas found and is now being displayed!");
-				
-			}
-			else {
+			//om det ej går att lösa, berätta för användaren samt skriv ut hur långt man kom (debug)
+			} else 
+			{
+
 				alert.display("No solutions!", "No solution exists for you suduko.");
 			}
+			
+			System.out.println(suduko.print());
 
 		});
 
