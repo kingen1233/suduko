@@ -31,6 +31,8 @@ public class SudukoInterface extends Application {
 
 		s.setTitle("Suduko Solver " + VERSION);
 		
+	
+		
 		Suduko suduko = new Suduko();
 		AlertBox alert = new AlertBox();
 
