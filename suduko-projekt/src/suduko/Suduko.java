@@ -7,7 +7,7 @@ public class Suduko {
 	private int[][] suduko;
 
 	/**
-	 * Creates a new Suduko
+	 * Creates a new Suduko with the specified size
 	 * 
 	 */
 	public Suduko() {
@@ -16,23 +16,39 @@ public class Suduko {
 		clear();
 	}
 
+	/**
+	 * Inserts the value at specified index.
+	 * 
+	 * @param row, specified row
+	 * @param col, specified col
+	 * @param value, value to be insterted
+	 */
 	public void setValueOfIndex(int row, int col, int value) {
 		suduko[row][col] = value;
 	}
 
+	/**
+	 * Returns the value from the suduko at specified index.
+	 * 
+	 * @param row, specified row
+	 * @param col, specified col
+	 * @return Integer value of the specified index 
+	 */
 	public int getValueOfIndex(int row, int col) {
 
 		return suduko[row][col];
 	}
 
+	/**
+	 * Solves the suduko
+	 * @return True if suduko was solved, False if suduko wasn't solved
+	 */
 	public boolean solve() {
-		
-		
-		
+	
 		return solve(0,0);		
 	}
 
-	public boolean solve(int i, int j) {
+	private boolean solve(int i, int j) {
 		
 		if(i >= 81 || j >= 81)
 			return true;
@@ -44,17 +60,17 @@ public class Suduko {
 		if (currentNbr != 0) {
 
 			setValueOfIndex(i / 9, j % 9, 0);
-			
+
 			if (checkNumber(i / 9, j % 9, currentNbr) == 0) {
 				setValueOfIndex(i / 9, j % 9, currentNbr);
-				return false;				
-			}				
-			
+				return false;
+			}
+
 			setValueOfIndex(i / 9, j % 9, currentNbr);
-			
+
 			if (i == 81)
 				return true;
-			
+
 			if (solve(i + 1, j + 1))
 				return true;
 
@@ -73,12 +89,10 @@ public class Suduko {
 					return true;
 
 			}
-			
-			
 
 		}
 		
-		System.out.println(print());
+		print();
 		setValueOfIndex(i/9, j%9, 0);
 		return false;
 
@@ -121,41 +135,12 @@ public class Suduko {
 	
 	private boolean checkArea(int row, int col, int tryNumber) {
 
-		if (row == 0 || row == 1 || row == 2) {
+		col = col / 3;
+        col = col * 3; 
+        row = row / 3;
+        row = row * 3;
 
-			if (col == 0 || col == 1 || col == 2) {
-				 return checkQuadrant(0, 0, tryNumber);
-			}
-			else if (col == 3 || col == 4 || col == 5) {
-				return checkQuadrant(0, 3, tryNumber);
-			}
-			else {
-				return checkQuadrant(0, 6, tryNumber);
-			}
-		}
-
-		else if (row == 3 || row == 4 || row == 5) {
-			if (col == 0 || col == 1 || col == 2) {
-				return checkQuadrant(3, 0, tryNumber);
-			}
-			else if (col == 3 || col == 4 || col == 5) {
-				return checkQuadrant(3, 3, tryNumber);
-			} 
-			else {
-				return checkQuadrant(3, 6, tryNumber);
-			}
-		}
-
-		else {
-			if (col == 0 || col == 1 || col == 2) {
-				return checkQuadrant(6, 0, tryNumber);
-			}
-			if (col == 3 || col == 4 || col == 5) {
-				return checkQuadrant(6, 3, tryNumber);
-			} else 	{
-				return checkQuadrant(6, 6, tryNumber);
-			}
-		}
+        return checkQuadrant(row,col,tryNumber);
 	}
 	
 	private boolean checkQuadrant(int row, int col, int tryNumber) {
@@ -172,6 +157,9 @@ public class Suduko {
 
 	}
 
+	/**
+	 * Fills the suduko matrix with zeroes, thus clearing it.
+	 */
 	public void clear() {
 
 		for (int i = 0; i < rows; i++) {
@@ -182,7 +170,10 @@ public class Suduko {
 
 	}
 
-	public String print() {
+	/**
+	 * Prints out the suduko in the console window.
+	 */
+	public void print() {
 
 		StringBuilder sb = new StringBuilder();
 
@@ -195,8 +186,6 @@ public class Suduko {
 			sb.append("\n");
 		}
 
-		return sb.toString();
-
+		System.out.println(sb.toString());
 	}
-
 }
