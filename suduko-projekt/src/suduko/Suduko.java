@@ -57,12 +57,12 @@ public class Suduko {
 		
 		
 
-		if (currentNbr != 0) {
+		if (currentNbr != 0) { // kolla om användaren har gjort input i denna rutan
 
-			setValueOfIndex(i / 9, j % 9, 0);
+			setValueOfIndex(i / 9, j % 9, 0);   //sätt till 0
 
-			if (checkNumber(i / 9, j % 9, currentNbr) == 0) {
-				setValueOfIndex(i / 9, j % 9, currentNbr);
+			if (checkNumber(i / 9, j % 9, currentNbr) == 0) {   //kolla fall användarn siffran får vara där
+				setValueOfIndex(i / 9, j % 9, currentNbr); //lägger tillbaka siffran igen
 				return false;
 			}
 
@@ -79,7 +79,7 @@ public class Suduko {
 
 		}
 
-		for (int k = 1; k <= 9; k++) {
+		for (int k = 1; k <= 9; k++) { //om ingen användar input i siffran
 
 			if (checkNumber(i / 9, j % 9, k) != 0) {
 
@@ -97,6 +97,7 @@ public class Suduko {
 		return false;
 
 	}
+	
 	
 	private int checkNumber(int row, int col, int number) {
 
